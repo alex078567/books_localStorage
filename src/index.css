@@ -1,0 +1,152 @@
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: Serif;
+	background: #f1f5f8;
+	color: #222;
+}
+
+.book-list {
+	width: 90vw;
+	max-width: 117rem;
+	margin: 8rem auto;
+	display: grid;
+	gap: 3.6rem;
+}
+
+.book-card {
+	background: #fff;
+	border-radius: 1.6rem;
+	padding: 1.6rem 3.2rem;
+}
+
+.book-card__image {
+	border-radius: 0 1.6rem 1.6rem 0;
+	font-size: 1.6rem;
+}
+
+.book-card__title {
+	margin-top: 0.8rem;
+	font-size: 1.8rem;
+}
+
+.book-card__author {
+	color: #617d98;
+	font-size: 1.2rem;
+	margin-top: 0.4rem;
+	margin-bottom: 1rem;
+}
+
+.edit-remove-button {
+	display: block;
+	background: transparent;
+	border-color: transparent;
+	color: #49a6e9;
+	font-size: 1.4rem;
+	letter-spacing: 0.1rem;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.edit-remove-button:hover {
+	color: #0368b1;
+}
+
+.modal-container {
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.702);
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	background: #fff;
+	width: 80vw;
+	max-width: 40rem;
+	border-radius: 1.6rem;
+	padding: 3.6rem 1.6rem;
+	text-align: center;
+}
+
+.add-book {
+	width: 90vw;
+	max-width: 117rem;
+	margin: 1.6rem auto;
+	background: #fff;
+	padding: 1.6rem;
+	border-radius: 1.6rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+.form-label {
+	display: block;
+	font-size: 1.8rem;
+	margin-bottom: 0.8rem;
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+}
+.form-input {
+	width: 100%;
+	font-size: 1.6rem;
+	padding: 0.6rem 1.2rem;
+	border-radius: 0.4rem;
+	background: #f0f4f8;
+	border: 1px solid #bcccdc;
+}
+
+.form-button {
+	align-self: center;
+	padding: 1.6rem 3.6rem;
+	color: #f1f5f8;
+	font-size: 1.6rem;
+	background-color: #577898;
+	border: none;
+	border-radius: 1rem;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+.form-button:hover {
+	color: #fff;
+	background-color: #3c4c5d;
+}
+
+.no-books-title {
+	font-weight: 700;
+	font-size: 3.8rem;
+	grid-column: 1/-1;
+	color: #456a84;
+}
+
+@media screen and (min-width: 768px) {
+	.book-list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.add-book > form {
+		flex-direction: row;
+	}
+}
