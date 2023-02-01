@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useState, useRef } from 'react';
 
 const Modal = ({ bookForEdit, changeBooksArray, closeModal }) => {
@@ -14,17 +14,17 @@ const Modal = ({ bookForEdit, changeBooksArray, closeModal }) => {
 		bookForEdit.current[0].bookImg
 	);
 
-	useEffect(() => {
-		toggleFileInput();
-	}, []);
-
-	const toggleFileInput = () => {
+	const toggleFileInput = useCallback(() => {
 		const data = newBook.bookData;
 		const file = new File([data], { type: 'image' });
 		const dataTransfer = new DataTransfer();
 		dataTransfer.items.add(file);
 		fileInputRef.current.files = dataTransfer.files;
-	};
+	}, []);
+
+	useEffect(() => {
+		toggleFileInput();
+	}, [toggleFileInput]);
 
 	const handleChange = (e) => {
 		const name = e.target.name;
