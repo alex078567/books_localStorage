@@ -14,17 +14,16 @@ const Modal = ({ bookForEdit, changeBooksArray, closeModal }) => {
 		bookForEdit.current[0].bookImg
 	);
 
-	const toggleFileInput = useCallback(() => {
-		const data = newBook.bookData;
-		const file = new File([data], { type: 'image' });
-		const dataTransfer = new DataTransfer();
-		dataTransfer.items.add(file);
-		fileInputRef.current.files = dataTransfer.files;
-	}, []);
-
 	useEffect(() => {
+		const toggleFileInput = () => {
+			const data = newBook.bookData;
+			const file = new File([data], { type: 'image' });
+			const dataTransfer = new DataTransfer();
+			dataTransfer.items.add(file);
+			fileInputRef.current.files = dataTransfer.files;
+		};
 		toggleFileInput();
-	}, [toggleFileInput]);
+	}, []);
 
 	const handleChange = (e) => {
 		const name = e.target.name;
