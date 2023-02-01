@@ -1,10 +1,28 @@
-import React from 'react'
+import {
+	addBooksToLocalStorage,
+	getBooksFromLocalStorage,
+} from '../utils/localStorage';
+import booksArray from '../data/booksArray';
 
-const BookArrayEmpty = () => {
-  return (
-    <h1 className='no-books-title'>Список книг пуст. Вы можете добавить книгу,
-      используя форму внизу &darr;, или перезагрузить страницу. </h1>
-  )
-}
+const BookArrayEmpty = ({ setBookData }) => {
+	const addBooksToLS = () => {
+		addBooksToLocalStorage(booksArray);
+		const bookData = getBooksFromLocalStorage();
+		setBookData(bookData);
+	};
 
-export default BookArrayEmpty
+	return (
+		<>
+			<h1 className="no-books-title">
+				Список книг пуст. Вы можете загрузить тестовые данные, используя кнопку
+				&laquo;Добавить&raquo; , или воспользоваться формой для добавления книг
+				&darr; .{' '}
+			</h1>
+			<button className="form-button" onClick={addBooksToLS}>
+				Добавить
+			</button>
+		</>
+	);
+};
+
+export default BookArrayEmpty;
