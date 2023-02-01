@@ -23,7 +23,7 @@ const Modal = ({ bookForEdit, changeBooksArray, closeModal }) => {
 			fileInputRef.current.files = dataTransfer.files;
 		};
 		toggleFileInput();
-	}, []);
+	}, [newBook.bookData]);
 
 	const handleChange = (e) => {
 		const name = e.target.name;
